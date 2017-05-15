@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lesson 5 Application Project</title>
+	<!-- 
+	Introduction of Melissa Bakke Homepage modified for image swapping assignment
+	Filename: lesson5.html
+	Author:   Melissa Bakke
+	Class:    CIS131-W01
+	Date:     09/22/2016
+	-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="description" content="Melissa Bakke's introduction for CIS131."> 
+	<script src="modernizr.custom.40753.js"></script>
+	<link rel="stylesheet" href="styles.css">
+	<script language="JavaScript" type="text/javascript">
+
+		
+		function display_image() {	  
+			var selectedImage = document.getElementById("images");
+			var selection = selectedImage.value;
+            var selectionName = selectedImage.options[selectedImage.selectedIndex].title;
+			newWindow = open("", "Name", "toolbar=1,height=450,width=450");
+            newWindow.document.open();
+			newWindow.document.write("<html><head><title>Image Window</title><link rel='stylesheet' href='styles.css'></head>")
+			newWindow.document.write("<body><h3 class='picWindow'>");
+			newWindow.document.write(selectionName + "</h3><br>");
+            newWindow.document.write("<img src="+selection+" class='picWindow' height='150' width='150' />" + "<br>");
+			newWindow.document.write("<input type='button' class='picWindow' value='Close' onclick='window.close()' align='center' />");
+			newWindow.document.write("</body></html>");
+            newWindow.document.close();			
+			}			
+		//function display_image(selectedImage) {  
+			//var selectionName = selectedImage.options[selectedImage.selectedIndex].text;
+			//var selection = selectedImage.options[selectedImage.selectedIndex].value;}
+			
+	</script>
+</head>
+<body>
+	<header>
+		<h1>Melissa's Introduction</h1>
+		<nav class="sitenavigation">
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="hobbies.html">Hobbies</a></li>
+				<li><a href="summer.html">Summer Fun</a></li>
+				<li><a href="imageswap.html">Image Swapping</a></li>
+				<li><a href="timerswap.html">Image Swapping With Timer</a></li>
+				<li><a href="lesson5.html">Lesson 5</a></li>
+			</ul>				
+		</nav>
+	</header>
+	<aside>
+		<p>CIS131-W01 <br>Web Site Development II <br>Ozarks Technical Community College <br>1001 E. Chestnut Expressway <br>Springfield, MO 65802 <br>Local: (417)867-5309 <br>Toll Free: 1(800)447-0002 </p>		
+	</aside>
+	<article>
+		<h2 class="picWindow">5.2 Application Project</h2>
+		<div class="picWindow">
+			<p>Meet 4 of the newest Southern Resident Killer Whales. Scarlet was born in December of 2014, the other 3 were born throughout 2015, along with 4 others after them that were just named. Check out <a href="http://whalemuseum.org/" target="_blank">The Whale Musuem</a> to learn more about them.
+			<p class="picWindow">
+			Select an image:
+			</p>
+			<select id="images" name="images" onchange="display_image()" style="margin-bottom:15em">
+				<option value="" /></option>
+				<option value="images/scarlet.jpg" title="Scarlet, J50<br>Southern Resident<br>Killer Whales" />Scarlet</option>
+				<option value="images/nova.jpg" title="Nova, J51<br>Southern Resident<br>Killer Whales" />Nova</option>
+				<option value="images/sonic.jpg" title="Sonic, J52<br>Southern Resident<br>Killer Whales" />Sonic</option>
+				<option value="images/windsong.jpg" title="Windsong, L121<br>Southern Resident<br>Killer Whales" />Windsong</option>
+			</select>
+		</div>
+	</article>
+	<footer>
+		<p id="contact">Melissa B. &#8226; CIS131-W01 Web Site Development II &#8226; Lesson 5</p> 
+	</footer>  
+</body>
+</html>

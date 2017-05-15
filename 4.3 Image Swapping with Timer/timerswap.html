@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Image Swapping Page With Timer</title>
+		<!-- 
+		Image Swapping page
+		Filename: imageswap.html
+		Author:   Melissa Bakke
+		Class:    CIS131-W01
+        Date:     09/20/2016
+		-->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<meta name="description" content="Melissa Bakke's introduction for CIS131."> 
+		<script src="modernizr.custom.40753.js"></script>
+		<link rel="stylesheet" href="styles.css">
+		<script>			
+			var myCount = 0;
+			//set interval for swapImage function, swaps pictures every 5 seconds
+			var myInterval5 = setInterval(function(){swapImage()}, 5000);				
+			function swapImage() {
+				var nameOfImage = document.getElementById("swap");				
+				var randNum = Math.floor(Math.random() * 4);
+				switch (randNum) {
+					case 0:
+					nameOfImage.src = "images/mya.jpg"
+					break;
+					case 1:
+					nameOfImage.src = "images/annie.jpg"
+					break;
+					case 2:
+					nameOfImage.src = "images/teddy.jpg"
+					break;
+					case 3:
+					nameOfImage.src = "images/princess.jpg"
+					break;
+				}				
+			}//end swapImg
+			//set interval for aCounter function, increments counter number every 1 second
+			var myInterval1 = setInterval (function() {aCounter()}, 1000);
+			function aCounter(){
+				var myCounter = document.getElementById("counter");	
+				myCount++;			
+				myCounter.innerHTML = "Counter: " + myCount;
+			}			
+		</script>
+	</head>
+	<body>
+		<header>
+			<h1>Image Swapping Page With Timer</h1>
+			<nav class="sitenavigation">
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="hobbies.html">Hobbies</a></li>
+					<li><a href="summer.html">Summer Fun</a></li>
+					<li><a href="imageswap.html">Image Swapping</a></li>
+					<li><a href="timerswap.html">Image Swapping With Timer</a></li>
+				</ul>				
+			</nav>
+		</header>
+		<aside>
+			<p>CIS131-W01 <br> Web Site Development II <br>Ozarks Technical Community College <br>1001 E. Chestnut Expressway <br>Springfield, MO 65802 <br>Local: (417)867-5309 <br>Toll Free: 1(800)447-0002 </p>		
+		</aside>		
+		<article style="padding-bottom:200px;">
+			<h2>My Puppies</h2>
+			<figure>
+				<img id="mya" src="images/myatn.jpg" alt="My puppy, Mya">
+				<figcaption>Mya</figcaption>
+			</figure>
+			<figure>
+				<img id="annie" src="images/annietn.jpg" alt="My puppy, Annie">
+				<figcaption>Annie</figcaption>
+			</figure>
+			<figure>
+				<img id="teddybear" src="images/teddytn.jpg" alt="My puppy, Teddy">
+				<figcaption>Teddy</figcaption>
+			</figure>
+			<figure>
+				<img id="princess" src="images/princesstn.jpg" alt="My puppy, Princess">
+				<figcaption>Princess</figcaption>
+			</figure>
+			<div>
+				<img id="swap" src="images/mya.jpg" alt="swapping image" onload="myInterval5" onclick="clearInterval(myInterval5)">
+				<p id="counter" onload="myInterval1" onclick="clearInterval(myInterval1)">Counter: 0</p>
+			</div>
+		</article>		
+		<footer>
+			<p id="contact">Melissa B. &#8226; CIS131-W01 Web Site Development II &#8226; Image Swapping</p> 
+		</footer>      
+    </body>
+</html>

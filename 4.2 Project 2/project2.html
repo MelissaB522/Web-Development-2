@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Lesson 4 - Project 2</title>
+		<!-- 
+		Lesson 4 - Project 2
+		Filename: project2.html
+		Author:   Melissa Bakke
+		Class:    CIS131-W01
+        Date:     09/18/2016
+		-->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<meta name="description" content="Melissa Bakke's introduction for CIS131."> 
+		<script src="modernizr.custom.40753.js"></script>
+		<link rel="stylesheet" href="styles.css">
+		<script>
+			function whileTest() {
+				var number = 3;
+				var answer = 0;
+				var guesses = 0;
+				
+				while (number != answer) {
+					answer = prompt("Pick a number between 1 and 10.", "");
+					guesses++;
+					if (guesses == 3) break;
+				}
+				if (number == answer){
+					alert("You guessed correctly, the number was " + number + "!");
+				}
+				else {
+					alert("You are out of guesses...")
+				}
+			}			
+		</script>
+	</head>
+	<body onload="whileTest()">
+		      
+    </body>
+</html>

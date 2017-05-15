@@ -1,0 +1,43 @@
+    var product = [{
+		"Name" : "J-Pod Shirt",
+		"Image" : "images/jpod.jpg", 
+		"Description" : "A t-shirt featuring individual orcas belonging to J-pod.", 
+		"Stock" : "15",
+		"Price" : "$24.00",  
+		},
+		{
+		"Name" : "Orca Onesie",
+		"Image" : "images/babies.jpg", 
+		"Description" : "A onesie featuring 3 baby orcas.", 
+		"Stock" : "7",
+		"Price" : "$17.99",  
+		},
+		{
+		"Name" : "Of Orcas and Men",
+		"Image" : "images/book.jpg", 
+		"Description" : "The paperback edition of a book by David Neiwart, giving tribute to orcas.", 
+		"Stock" : "3",
+		"Price" : "$17.95",  
+		},
+		{
+		"Name" : "Orcas Puzzle",
+		"Image" : "images/puzzle.jpg", 
+		"Description" : "A wooden puzzle featuring a photograph taken by Jeanne Hyde of the Southern Resident Orcas passing Lime Kiln Lighthouse on San Juan Island, WA.", 
+		"Stock" : "17",
+		"Price" : "$30.00",  
+		},
+		{
+		"Name" : "Orca Box",
+		"Image" : "images/box.jpg", 
+		"Description" : "A wooden box featuring an orca on the lid.", 
+		"Stock" : "6",
+		"Price" : "$26.99",  
+		},
+		{
+		"Name" : "Orca Earrings",
+		"Image" : "images/earrings.jpg", 
+		"Description" : "Orca earrings with hypo-allergenic posts.", 
+		"Stock" : "2",
+		"Price" : "$13.99",  
+		}
+	];

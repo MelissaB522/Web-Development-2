@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>The Great Puppy Race</title>
+			<!-- 
+			 The Great Puppy Race
+			 Filename: index.html
+
+			 Author:   Melissa Bakke
+			 Date:     10/15/2016
+			 Midterm Project
+			-->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<script src="modernizr.custom.40753.js"></script>
+		<link rel="stylesheet" href="styles.css">
+	  
+		<script>
+			var ready = false;
+			function getReady() {
+				document.getElementById("winner").style.display = "none";
+				var dog1 = document.getElementById("dog1");
+				var dog2 = document.getElementById("dog2");
+				var dog3 = document.getElementById("dog3");
+				var light = document.getElementById("light") 
+				//turns start line visibility on
+				document.getElementById("start").style.display = "initial";
+
+				//moves dogs to start line
+				dog1.style.left = "3%";
+				dog1.style.top = "58%";
+				dog2.style.left = "3%";
+				dog2.style.top = "70%";
+				dog3.style.left = "3%";
+				dog3.style.top = "80%";
+				
+				//turns light green
+				light.src = "images/yellowpaw.png";
+				ready = true;
+			}
+		  
+			function startRace() {
+				// if statement validation, if getReady function has not been completed the race cannot start
+				if (ready){
+					//set interval at half a second
+					light.src = "images/greenpaw.png";
+					var dog1Position = dog1.x;
+					var dog2Position = dog2.x;
+					var dog3Position = dog2.x;
+					var finishLine = document.getElementById("finish").x - 150;
+					var winner = document.getElementById("winner");
+					moveInterval = setInterval(function() {
+						moveDog1();
+						moveDog2();
+						moveDog3();
+						if (dog1Position >= finishLine || dog2Position >= finishLine || dog3Position >= finishLine) {
+							clearInterval(moveInterval);
+							declareWinner();
+							light.src = "images/redpaw.png"; // red paw shows dogs are not ready to race
+							ready = false; // dogs must get ready before they can race again
+						}
+					}, 50); // end setInterval
+					
+					function moveDog1(){
+						var randNum = Math.floor((Math.random() * 20) + 6);
+						dog1Position += randNum;
+						dog1.style.left = dog1Position + "px";
+					} // end moveDog1
+					
+					function moveDog2(){
+						var randNum = Math.floor((Math.random() * 20) + 6);
+						dog2Position += randNum;
+						dog2.style.left = dog2Position + "px";
+					} // end moveDog2
+					
+					function moveDog3(){
+						var randNum = Math.floor((Math.random() * 20) + 6);
+						dog3Position += randNum;
+						dog3.style.left = dog3Position + "px";
+					} // end moveDog3
+					
+					function declareWinner() {
+						if (dog1Position > dog2Position && dog1Position > dog3Position) {
+							winner.style.display = "initial"; // shows "winner!"
+							dog1.style.left = "45%"; // moves winning puppy under "winner"
+							dog1.style.top = "42%";
+						} else if (dog2Position > dog1Position && dog2Position > dog3Position) {
+							winner.style.display = "initial";
+							dog2.style.left = "45%";
+							dog2.style.top = "42%";
+						} else {
+							winner.style.display = "initial";
+							dog3.style.left = "45%";
+							dog3.style.top = "42%";
+						}					
+					} // end declareWinner
+				}
+			}
+	  
+		</script>
+	</head>
+	<body>
+		<header>
+			<h1>The Great Puppy Race</h1>
+		</header>
+		<article>
+			<img id="dog1" src="images/dog.png" height="150px" width="150px" alt="Dog number 1" onclick="getReady()">
+			<img id="dog2" src="images/dog2.png" height="150px" width="150px" alt="Dog number 2" onclick="getReady()">
+			<img id="dog3" src="images/dog3.png" height="150px" width="150px" alt="Dog number 3" onclick="getReady()">
+			<img id="light" src="images/redpaw.png" height="150px" width="150px" alt="Light for stop and go" onclick="startRace()">
+			<img id="finish" src="images/bone.png" height="150px" width="150px" alt="Treats for finish">
+			<img id="start" src="images/checkered.gif" height="200px"  alt="Start line">
+			<p id="winner"> WINNER!!!</p>		
+		</article>
+	</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Shopping Cart</title>
+	<!-- 
+		Final Project - Shopping Cart
+		Filename: shopping.html
+		Author:   Melissa Bakke
+		Class:    CIS131-W01
+        Date:     12/03/2016
+	-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="description" content="Melissa Bakke's shopping cart."> 
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.8/vue.js"></script>
+	<script src="shopping.json"></script> 
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<header>
+		<h1>Shopping Cart</h1>
+	</header>
+	<aside>
+		<p>CIS131-W01 <br>Web Site Development II <br>Ozarks Technical Community College <br>1001 E. Chestnut Expressway <br>Springfield, MO 65802 <br>Local: (417)867-5309 <br>Toll Free: 1(800)447-0002 </p>		
+	</aside>
+	<article>
+		<p style="text-align:center">These items can actually be purchased at <a href="http://whalemuseum.org/" target="_blank">The Whale Museum</a>
+		<h2 style="text-align:center">Items for sale</h2> 
+		<div id="app">			
+			<script type="text/javascript">
+			<!--
+				// for loop populates information from array
+				for (var i = 0; i < product.length; i++) {
+					var items = "<my-products Name='" + product[i].Name + "'";
+					items += " Image='" + product[i].Image + "'";
+					items += " Description='" + product[i].Description + "'";
+					items += " Stock='" + product[i].Stock + "'";
+					items += " Price='" + product[i].Price + "'></my-products>";
+					document.write(items);
+				}
+			//-->
+			</script>
+		<h2>Shopping Cart</h2><br>
+		<table id="cart">
+			<tr>
+				<th>ITEMS </th>
+				<th>PRICE </th>
+				<th>QUANTITY </th>
+				<th>SUBTOTAL </th>
+			</tr>
+			<tbody id="carttable">
+				<tr v-for="items in cartItems">
+					<td>{{items.item}}</td>		
+					<td>{{items.price}}</td>
+					<td>{{items.quantity}}</td>
+					<td>{{items.total}}</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td id="total" v-bind:ref="total">TOTAL: $0</td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+		<template id="products-template">
+			<h4 class='products' style='text-align:center;'>{{ [Name] }}<br>
+			<img v-bind:src="Image" alt='item' height='150' width='150'>
+			<br>{{ [Description ] }}
+			<br><br>In Stock: {{ [Stock] }}
+			<br>Price: {{ [Price] }}<br>
+			<button id="{{Name}}" @click="add">Add To Cart</button></h4>
+		</template>
+		<script>
+			Vue.component('my-products', {
+				template: '#products-template',
+				
+				props: ['Name','Image','Description','Stock','Price'],
+				
+				methods: {
+					add: function (event){				
+						// decrease stock
+						if (this.Stock > 0) {
+							this.Stock -= 1;
+						
+							var exist = false;
+							// checks to see if item is already in cart
+							for(var i = 0; i < cartVue.cartItems.length; i++){
+								// if item exists change quantity and add price
+								if(cartVue.cartItems[i].item === this.Name){
+									// add 1 to quantity
+									cartVue.cartItems[i].quantity += 1;
+									// get price
+									var price = parseFloat(cartVue.cartItems[i].price.substring(1));
+									// add price to subtotal based on quantity
+									cartVue.cartItems[i].total = "$" +  cartVue.cartItems[i].quantity * price;
+									//get the subtotal value
+									currentTotal = parseFloat(total.innerHTML.substring(8));
+									//add the price
+									currentTotal += price;
+									//set the subtotal value
+									total.innerHTML = "Total: $" + currentTotal.toFixed(2);									
+									exist = true;
+									break;
+								}
+							}
+							 // if item doesn't exist, add to cart
+							if(!exist){
+								newCartItem = {item: this.Name, price: this.Price, quantity: 1, total: this.Price};
+								cartVue.cartItems.push(newCartItem);
+								// calculate Total
+								currentTotal = parseFloat(total.innerHTML.substring(8));
+								currentTotal += parseFloat(this.Price.substring(1));
+								total.innerHTML = "Total: $" + currentTotal.toFixed(2);
+							}							
+							cartVue.cartItems.length;
+						}
+						
+						// display sold out if stock = 0
+						if (this.Stock == 0) {
+							this.Stock = "Sold Out";
+						}
+					}
+				}		
+			});
+			
+			var cartVue = new Vue({
+				el: '#app',
+										
+				data: {
+					cartItems: [				
+					]
+				}
+			});
+
+		</script>		
+	</article>
+	<footer>
+		<p id="contact">Melissa B. &#8226; CIS131-W01 Web Site Development II &#8226; Final Project</p> 
+	</footer>  
+</body>
+</html>

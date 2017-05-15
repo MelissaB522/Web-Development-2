@@ -1,0 +1,186 @@
+﻿/* 
+   3.2 Image Swapping styles sheet
+   Filename: styles.css
+   Author:   Melissa Bakke
+   Class:    CIS131-W01
+   Date:     09/09/2016
+ */
+
+/* reset styles */
+html {
+	font-size: 12px;
+	background-color: #558998;
+	background-image: url("images/celtic.jpg");
+}
+body, header, ul, li, h1, h2, p, aside, article, footer {
+   border: 0;
+   padding: 0;
+   margin: 0;
+}
+
+/* header section */
+header {
+	background-color: #656262;
+}
+
+/* site navigation bar */
+nav.sitenavigation {
+   text-align: center;
+   background-color: #656262;
+}
+nav.sitenavigation li {
+   margin: 0.3em 0.5em; 
+   display: inline-block;
+   font-size: 1.8em; 
+   line-height: 1.4em;
+}
+nav.sitenavigation a:link {
+   text-decoration: none;
+   font-weight: bold;
+}
+nav.sitenavigation a:hover, nav.sitenavigation a:focus {
+   text-shadow: 2px -2px 1px black;	
+}
+nav.sitenavigation a:visited {
+	color: #558998;
+}
+
+/* body */
+body {
+	max-width: 80%;
+	margin: 5em auto;
+	border: 2px solid black; 
+	background-color: #2b4a81;
+	font-family: Verdana, Tahoma, sans-serif;
+	box-shadow: 10px 10px 3px -1px #000;
+}
+p{
+	font-size: 1.4em;
+	line-height: 1.4em;
+	text-align: left;
+	padding: 0.8em 0 0.5em;
+}
+
+/* headings */
+h1, h2, h3 {
+   font-family: "Palatino Linotype", Palatino, serif; 
+}
+h1 {
+	padding: 0.4em;
+	color: ivory;		
+	text-align: center;
+	font-size: 3em;
+	font-weight: 900;
+	text-shadow: 3px -3px 2px black;
+}
+h2 {
+	font-size: 2.2em;
+	text-align: left;
+	padding: 0.4em 0 0.1em;
+}
+
+h3 {
+	font-size: 1.8em;
+	text-align: left;
+	padding: 1em 0 0;
+	margin: 0;
+}
+
+/* main content */
+aside {
+	background-color: #2b4a81;
+	float: right;   	
+	width: 20%;
+	text-align: center;
+}
+aside p {
+	font-size: 1.2em;
+	line-height: 160%;
+	text-align: center;
+	position: fixed;	
+	width: 14%;
+	padding: 2.2em 0.8em 0;
+	color: white;
+	font-variant: small-caps;
+}
+article {
+	margin-right: 20%;
+	background-color: #d6cccc;
+	padding: 1.5em;
+}
+article p:first-letter {
+	font-size: 1.5em;
+	font-weight: bold; 
+	font-style: italic;
+}
+figure {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0.8em;
+}
+#teddy {
+	display: block;
+	text-align: center;
+	font-family: "Book Antiqua", Georgia,  serif;  
+	max-width: 80%;
+	font-size: 1.2em;
+	font-weight: bold;
+	margin: 0.8em auto;
+}
+figcaption.mypups {
+	font-family: "Book Antiqua", Georgia,  serif;
+	max-width: 250px;
+	font-size: 1.3em;
+	font-weight: bold;
+}
+figcaption.fosterpups {
+	font-family: "Book Antiqua", Georgia,  serif;
+	max-width: 105px;
+	font-size: 1.1em;
+	font-weight: bold;
+}
+p img {
+	padding: 2em;
+}
+.picWindow {
+	padding: .5em;
+	margin: 0 auto;
+	display: block;
+	text-align: center;
+	vertical-align: center;	
+}
+
+
+
+/* footer section */
+footer {
+	padding: 0.6em;
+	color: black;
+	font-weight: bold;
+	font-size: 1.2em;
+	background-color: #f2bb66;
+}
+footer p {
+	margin: 0.4em;
+	text-align: center;
+}
+
+/* print styles */
+@media print {
+	body, header, ul, li, h1, h2, p, aside, article, footer  {
+		color: #000;
+		background-color: #fff;
+	}
+	body {
+		max-width: 100%;
+		border: 0;
+		padding: 0;
+		margin: 0;
+	}
+	aside {
+		position: relative; top: 0px;
+	}
+}
+@page {
+	margin: 1in;
+}

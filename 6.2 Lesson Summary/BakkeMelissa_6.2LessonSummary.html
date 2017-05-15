@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>6.2 Lesson Summary</title>
+		<!-- 
+		6.2 Lesson Summary
+		Filename: .html
+		Author:   Melissa Bakke
+		Class:    CIS131-W01
+        Date:     10/4/2016
+		-->
+		<meta charset="utf-8" />
+		<title>Lesson 6 Application Project</title>
+
+		<script language="JavaScript" type=text/javascript>
+		<!--
+			/***************************************************************************** 
+			The placeholders sub and string are used to pass as arguments the 
+			user's entry into the text box and the textarea.  The variable where 
+			is assigned the result of a method which returns the index (integer) 
+			of the first occurence of sub (the string the program is searching for).
+			Start the search at the beginning of string (the text that is being searched).
+			Since the string is zero based, add 1 is to get the correct position of sub.
+			*****************************************************************************/
+
+			function search(sub, string) {				
+				string = string.toLowerCase();
+				sub = sub.toLowerCase();
+				var where = string.search(sub);
+				if (where >= 0) {
+					alert("The index position at which your string was found is: " + where);
+				}
+				else {
+					alert("Your string was not found.")
+				}
+			}
+
+		//-->
+		</script>
+	</head>
+
+<body>
+
+	<h3>CIW JavaScript Specialist</h3>
+	<hr />
+
+	<form name="myForm">
+		<p>
+			<strong>Look for:</strong>
+			<input type="text" name="what" size="20" />
+		</p>
+
+		<p>
+			<strong>in this string:</strong>
+			<textarea name="toSearch" rows="4" cols="30" wrap="virtual">
+			</textarea>
+		</p>
+
+		<p>
+			<input type="button" value="Search"
+			onclick="search(myForm.what.value, myForm.toSearch.value);" />
+			</p>
+	</form>
+
+	</body>
+</html>

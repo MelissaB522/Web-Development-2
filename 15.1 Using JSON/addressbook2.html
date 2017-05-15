@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>15.1 Using JSON</title>
+	<!-- 
+		15.1 Using JSON
+		Filename: addressbook2.html
+		Author:   Melissa Bakke
+		Class:    CIS131-W01
+        Date:     12/4/2016
+	-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="description" content="Melissa Bakke's introduction for CIS131."> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="addressbook.js"></script> 
+	<script src="addressbook.json"></script> 
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<header>
+		<h1>15.1 Using JSON</h1>
+	</header>
+	<aside>
+		<p>CIS131-W01 <br>Web Site Development II <br>Ozarks Technical Community College <br>1001 E. Chestnut Expressway <br>Springfield, MO 65802 <br>Local: (417)867-5309 <br>Toll Free: 1(800)447-0002 </p>		
+	</aside>
+	<article>
+		<h2  style="text-align:center">Click name to view information:</h2> 
+		<section>			
+			<script language="JavaScript" type="text/javascript">
+			<!--
+				// for loop populates information from array
+				for (i = 0; i < person.length; i++) {					
+					document.write("<h4 class='people'>" + person[i].FirstName + " " + person[i].LastName + "</h4>");
+					document.write("<div class='hide'> <u>Phone Number:</u> <br>" + person[i].Phone + "<br><br>");
+					document.write("<u>Email Address:</u> <br>" + person[i].Email + "<br>");
+					document.write("<img src='" + person[i].Image + "'alt='Smiley' height='150' width='150'>" + "</div>");
+				}
+			//-->
+			</script>
+			<img id="image" src="images/face.png" alt="Smiley" height="150" width="150" style="display:none"> 
+		</section>
+	</article>
+	<footer>
+		<p id="contact">Melissa B. &#8226; CIS131-W01 Web Site Development II &#8226; Address Book</p> 
+	</footer>  
+</body>
+</html>

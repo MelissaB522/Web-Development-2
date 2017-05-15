@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>8.2 Form Validation</title>
+		<!-- 
+		8.2 Form Validation
+		Filename: form.html
+		Author:   Melissa Bakke
+		Class:    CIS131-W01
+        Date:     10/17/2016
+		-->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<script src="modernizr.custom.40753.js"></script>
+		<link rel="stylesheet" href="styles.css">
+		<script>			
+			function validateForm(){
+				var str = '';
+				var elements = document.getElementById("myForm").elements;
+				var valid = true;
+				// if name or email is blank
+				if (elements.name.value.length == 0 || elements.email.value.length == 0) {
+					document.getElementById("message").style.display = "initial";
+					elements.name.style.backgroundColor = "red";
+					elements.email.style.backgroundColor = "red";
+					valid = false;
+				}
+				else {
+					document.getElementById("message").style.display = "none";
+					elements.name.style.backgroundColor = "white";
+					elements.email.style.backgroundColor = "white";
+				}
+				// name must be at least 6 characters
+				if (elements.name.value.length < 6) {
+					elements.name.style.backgroundColor = "red";
+					valid = false;
+				}
+				else {
+					elements.name.style.backgroundColor = "white";
+				}
+				// email must contain @ and .
+				if (!elements.email.value.match("@") && !elements.email.value.match("[.][A-Za-z]{2}")){
+					elements.email.style.backgroundColor = "red";
+					valid = false;
+				}
+				else {
+					elements.email.style.backgroundColor = "white";
+				}
+				
+				// radio must have 1 checked
+				console.log(elements);
+				if(!elements.radio.value){
+					//elements.radio.style.backgroundColor = "red";
+					document.getElementById("radioDiv").style.backgroundColor = "red";
+					valid = false;
+				}
+				else {
+					//elements.radio.style.backgroundColor = "white";
+					document.getElementById("radioDiv").style.backgroundColor = "#d6cccc";
+				}
+				// phone regex
+				if (!elements.phone.value.match("[0-9]{3}-[0-9]{3}-[0-9]{4}")) {
+					elements.phone.style.backgroundColor = "red";
+					valid = false;
+				}
+				else {
+					elements.phone.style.backgroundColor = "white";
+				}
+				
+				if(valid){
+					alert("Name: " + elements.name.value + "\nEmail: " + elements.email.value + "\nDoor: " + elements.radio.value + "\nDay: " + elements.day.value );
+				}
+				
+				return valid;
+								
+			}
+			
+		</script>
+	</head>
+	<body>
+		<header>
+			<h1 id="myH1">Form Validation</h1>
+		</header>
+		<aside>
+			<p>CIS131-W01 <br> Web Site Development II <br>Ozarks Technical Community College <br>1001 E. Chestnut Expressway <br>Springfield, MO 65802 <br>Local: (417)867-5309 <br>Toll Free: 1(800)447-0002 </p>		
+		</aside>		
+		<article>
+			<div id="message" style="display:none"><h3>Required fields are missing.</h3></div>
+			<form name="myForm" id="myForm" action="thankyou.html">
+			<p>
+			Name (must contain at least 6 characters): <br>
+			<input type="text" name="name" id="name"  />
+			</p>
+			<p>
+			Email Address (ex. name@email.com): <br>
+			<input type="text" name="email" id="email" />
+			</p>
+			<p>
+			Phone Number (###-###-####): <br>
+			<input type="text" name="phone" id="phone" />
+			</p>
+			<p>
+			Choose a Door:
+			<span id="radioDiv">
+				<input type="radio" name="radio" value="door1" />
+				Door 1 &nbsp;
+				<input type="radio" name="radio" value="door2" />
+				Door 2 &nbsp;
+				<input type="radio" name="radio" value="door3" />
+				Door 3
+			</span>
+			</p>
+			<p>
+			Day: 
+			<select name="day">
+			<option value="Monday">Monday
+			<option value="Tuesday">Tuesday
+			<option value="Wednesday">Wednesday
+			<option value="Thursday">Thursday
+			<option value="Friday">Friday
+			<option value="Saturday">Saturday
+			<option value="Sunday">Sunday
+			</select>
+			</p>
+			<p>
+			<input type="submit" value="Check Form" onClick="return validateForm();" />&nbsp;
+			<input type="reset" value="Reset Form" />
+			</p>
+			</form>
+		</article>		
+		<footer>
+			<p id="contact">Melissa B. &#8226; CIS131-W01 Web Site Development II &#8226; Form Validation</p> 
+		</footer>      
+    </body>
+</html>

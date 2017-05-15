@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Image Swapping Page With Timer Using An Array</title>
+		<!-- 
+		Image Swapping page
+		Filename: imageswaparray.html
+		Author:   Melissa Bakke
+		Class:    CIS131-W01
+        Date:     10/4/2016
+		-->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<meta name="description" content="Melissa Bakke's introduction for CIS131."> 
+		<script src="modernizr.custom.40753.js"></script>
+		<link rel="stylesheet" href="styles.css">
+		<script>			
+			var myCount = 0;
+			//set interval for swapImage function, swaps pictures every 5 seconds
+			var myInterval5 = setInterval(function(){swapImage()}, 5000);
+			var picArray = ["images/mya.jpg", "images/annie.jpg", "images/teddy.jpg", "images/princess.jpg"]
+			function swapImage() {
+				var randNum = Math.floor(Math.random() * 4);
+				document.getElementById("swap").src = picArray[randNum]; //array index chosen by random number		
+			}//end swapImage function
+			
+			//set interval for aCounter function, increments counter number every 1 second
+			var myInterval1 = setInterval (function() {aCounter()}, 1000);
+			function aCounter(){
+				var myCounter = document.getElementById("counter");	
+				myCount++;			
+				myCounter.innerHTML = "Counter: " + myCount;
+			}
+			
+			function headerColor() {
+				document.getElementById("myH1").style.color = "red";
+			}
+			
+			function hideHeader() {
+				document.getElementById("myH1").style.visibility = "hidden";
+			}
+						
+			function showHeader() {
+				document.getElementById("myH1").style.visibility = "visible";
+			}
+						
+			function moveHeader() {
+				document.getElementById("myH1").style.position = "relative";
+				document.getElementById("myH1").style.left = "100px";
+			}
+			
+		</script>
+	</head>
+	<body>
+		<header>
+			<h1 id="myH1">Image Swapping Page With Timer Using An Array</h1>
+			<nav class="sitenavigation">
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="hobbies.html">Hobbies</a></li>
+					<li><a href="summer.html">Summer Fun</a></li>
+					<li><a href="imageswap.html">Image Swap</a></li>
+					<li><a href="timerswap.html">Image Swap With Timer</a></li>
+					<li><a href="timerswaparray.html">Image Swap Array</a></li>
+				</ul>				
+			</nav>
+		</header>
+		<aside>
+			<p>CIS131-W01 <br> Web Site Development II <br>Ozarks Technical Community College <br>1001 E. Chestnut Expressway <br>Springfield, MO 65802 <br>Local: (417)867-5309 <br>Toll Free: 1(800)447-0002 </p>		
+		</aside>		
+		<article style="padding-bottom:200px;">
+			<div class="buttons">
+			<input type="button" value="Change header color" onclick="headerColor();" />
+			<input type="button" value="Hide header" onclick="hideHeader();" />
+			<input type="button" value="Show header" onclick="showHeader();" />
+			<input type="button" value="Move header" onclick="moveHeader();" />
+			</div>
+			<h2>My Puppies</h2>
+			<figure>
+				<img id="mya" src="images/myatn.jpg" alt="My puppy, Mya">
+				<figcaption>Mya</figcaption>
+			</figure>
+			<figure>
+				<img id="annie" src="images/annietn.jpg" alt="My puppy, Annie">
+				<figcaption>Annie</figcaption>
+			</figure>
+			<figure>
+				<img id="teddybear" src="images/teddytn.jpg" alt="My puppy, Teddy">
+				<figcaption>Teddy</figcaption>
+			</figure>
+			<figure>
+				<img id="princess" src="images/princesstn.jpg" alt="My puppy, Princess">
+				<figcaption>Princess</figcaption>
+			</figure>
+			<div>
+				<img id="swap" src="images/mya.jpg" alt="swapping image" onload="myInterval5" onclick="clearInterval(myInterval5)">
+				<p id="counter" onload="myInterval1" onclick="clearInterval(myInterval1)">Counter: 0</p>
+			</div>
+
+		</article>		
+		<footer>
+			<p id="contact">Melissa B. &#8226; CIS131-W01 Web Site Development II &#8226; Image Swapping</p> 
+		</footer>      
+    </body>
+</html>

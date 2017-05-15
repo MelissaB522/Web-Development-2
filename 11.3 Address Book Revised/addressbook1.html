@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>11.3 Address Book Revised</title>
+	<!-- 
+		11.3 Address Book
+		Filename: addressbook1.html
+		Author:   Melissa Bakke
+		Class:    CIS131-W01
+        Date:     11/22/2016
+	-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="description" content="Melissa Bakke's introduction for CIS131."> 
+	<script src="modernizr.custom.40753.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="addressbook.js"></script> 
+	<link rel="stylesheet" href="styles.css">
+
+<script language="JavaScript" type="text/javascript">
+<!--
+    // constructor for personObject
+	function personObject(firstname,lastname,phone,email,image) {
+      this.firstname = firstname;
+      this.lastname = lastname;
+      this.phone = phone;
+	  this.email = email;
+	  this.image = image;
+    }
+  
+    // Instantiate 6 instances of personObject in an array
+    var person = new Array();
+    person[0] = new personObject("John", "Doe", "555-867-5309", "JDoe@email.com", "images/1.svg" );
+    person[1] = new personObject("Morticia", "Addams", "555-555-5555", "MAddams@email.com", "images/2.png");
+    person[2] = new personObject("Davy", "Crockett", "123-456-7890", "Davy@alamo.com", "images/3.png");
+	person[3] = new personObject("Darth", "Vader", "1-800-deathstar", "Daddy@jedi.com", "images/4.png");
+	person[4] = new personObject("Paul", "Bunyan", "987-654-0123", "Bunyan@merica.com", "images/5.png");
+	person[5] = new personObject("Frodo", "Baggins", "1-800-ringbearer", "FBaggins@underhill.com", "images/6.png");
+  
+	var len = person.length;
+//-->
+</script>
+</head>
+<body>
+	<header>
+		<h1>Address Book</h1>
+	</header>
+	<aside>
+		<p>CIS131-W01 <br>Web Site Development II <br>Ozarks Technical Community College <br>1001 E. Chestnut Expressway <br>Springfield, MO 65802 <br>Local: (417)867-5309 <br>Toll Free: 1(800)447-0002 </p>		
+	</aside>
+	<article>
+		<h2  style="text-align:center">Click name to view information:</h2> 
+		<section>			
+			<script language="JavaScript" type="text/javascript">
+			<!--
+				// for loop populates information from array
+				for (var i = 0; i < len; i++) {
+					var personData = "<h4 class='people'>" + person[i].firstname + " " + person[i].lastname + "</h4>" 
+						personData += "<div class='hide'> Phone Number: <br>" + person[i].phone + "<br>";
+						personData += "Email Address: <br>" + person[i].email + "<br>";
+						personData += "<img src='" + person[i].image + "'alt='Smiley' height='150' width='150'>";
+						personData += "</div>"
+					document.write(personData);
+				}
+			//-->
+			</script>
+			<img id="image" src="images/face.png" alt="Smiley" height="150" width="150" style="display:none"> 
+		</section>
+	</article>
+	<footer>
+		<p id="contact">Melissa B. &#8226; CIS131-W01 Web Site Development II &#8226; Address Book</p> 
+	</footer>  
+</body>
+</html>

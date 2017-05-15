@@ -1,0 +1,43 @@
+    var person = [{
+		"FirstName" : "John", 
+		"LastName" : "Doe", 
+		"Phone" : "555-867-5309",
+		"Email" : "JDoe@email.com", 
+		"Image" : "images/1.svg" 
+		},
+		{
+		"FirstName" : "Morticia", 
+		"LastName" : "Addams", 
+		"Phone" : "555-555-5555", 
+		"Email" : "MAddams@email.com", 
+		"Image" : "images/2.png"
+		},
+		{
+		"FirstName" : "Davy", 
+		"LastName" : "Crockett", 
+		"Phone" : "123-456-7890", 
+		"Email" : "Davy@alamo.com", 
+		"Image" : "images/3.png"
+		},
+		{
+		"FirstName" : "Darth", 
+		"LastName" : "Vader", 
+		"Phone" : "1-800-deathstar", 
+		"Email" : "Daddy@jedi.com", 
+		"Image" : "images/4.png"
+		},
+		{
+		"FirstName" : "Paul", 
+		"LastName" : "Bunyan", 
+		"Phone" : "987-654-0123", 
+		"Email" : "Bunyan@merica.com", 
+		"Image" : "images/5.png"
+		},
+		{
+		"FirstName" : "Frodo", 
+		"LastName" : "Baggins", 
+		"Phone" : "1-800-ringbearer", 
+		"Email" : "FBaggins@underhill.com", 
+		"Image" : "images/6.png"
+		}
+	];

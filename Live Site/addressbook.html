@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>9.2 Address Book</title>
+	<!-- 
+		9.2 Address Book
+		Filename: addressbook.html
+		Author:   Melissa Bakke
+		Class:    CIS131-W01
+        Date:     11/7/2016
+	-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="description" content="Melissa Bakke's introduction for CIS131."> 
+	<script src="modernizr.custom.40753.js"></script>
+	<link rel="stylesheet" href="styles.css">
+
+<script language="JavaScript" type="text/javascript">
+<!--
+    // constructor for personObject
+	function personObject(firstname,lastname,phone,email,image) {
+      this.firstname = firstname;
+      this.lastname = lastname;
+      this.phone = phone;
+	  this.email = email;
+	  this.image = image;
+      this.showPerson = showPerson;
+    }
+  
+    // Instantiate 6 instances of personObject in an array
+    var person = new Array();
+	person[0] = "Select Person";
+    person[1] = new personObject("John", "Doe", "555-867-5309", "JDoe@email.com", "images/1.svg" );
+    person[2] = new personObject("Morticia", "Addams", "555-555-5555", "MAddams@email.com", "images/2.png");
+    person[3] = new personObject("Davy", "Crockett", "123-456-7890", "Davy@alamo.com", "images/3.png");
+	person[4] = new personObject("Darth", "Vader", "1-800-deathstar", "Daddy@jedi.com", "images/4.png");
+	person[5] = new personObject("Paul", "Bunyan", "987-654-0123", "Bunyan@merica.com", "images/5.png");
+	person[6] = new personObject("Frodo", "Baggins", "1-800-ringbearer", "FBaggins@underhill.com", "images/6.png");
+  
+	var len = person.length;
+	
+	// showPerson function formats info and writes it to the page using innerHTML
+    function showPerson() {
+		var info = "";
+		info += "First Name: " + this.firstname + "<br>";
+		info += "Last Name: " + this.lastname +  "<br>";
+		info += "Phone Number: " + this.phone + "<br>";
+		info += "Email Address: " + this.email +  "<br>";
+		document.getElementById("image").src = this.image;
+		document.getElementById("image").style.display = "initial";
+		document.getElementById("peoples").innerHTML = info;		
+    }
+
+//-->
+</script>
+</head>
+<body>
+	<header>
+		<h1>Address Book</h1>
+		<nav class="sitenavigation">
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="hobbies.html">Hobbies</a></li>
+				<li><a href="summer.html">Summer Fun</a></li>
+				<li><a href="imageswap.html">Image Swap</a></li>
+				<li><a href="timerswap.html">Image Swap With Timer</a></li>
+				<li><a href="timerswaparray.html">Image Swap Array</a></li>
+				<li><a href="dolphins.html">7.2 Summary</a></li>
+				<li><a href="form.html">Form</a></li>
+				<li><a href="addressbook.html">Address Book</a></li>
+				<li><a href="addressbook1.html">Address Book Revised</a></li>
+				<li><a href="addressbook2.html">15.1 Using JSON</a></li>
+			</ul>				
+		</nav>
+	</header>
+	<aside>
+		<p>CIS131-W01 <br>Web Site Development II <br>Ozarks Technical Community College <br>1001 E. Chestnut Expressway <br>Springfield, MO 65802 <br>Local: (417)867-5309 <br>Toll Free: 1(800)447-0002 </p>		
+	</aside>
+	<article style="padding-bottom:20em;">
+		<form name="personForm" id="personForm" style="text-align:center;">
+		<h2  style="text-align:center">Select name to view information:</h2> 
+		<select name="personName" onchange="person[this.selectedIndex].showPerson(); this.selectedIndex=0;" style="width:120px; height:25px; font-size:16px">
+		<script language="JavaScript" type="text/javascript">
+		<!--
+			// for loop populated the listbox
+			for (var i = 0; i < len; i++) {
+			if(i == 0)
+			document.write("<option>" + person[i]) + "</option>";
+			else
+			  document.write("<option>" + person[i].firstname) + "</option>";
+			}
+
+		//-->
+		</script>
+		</select>
+		<h4 id="peoples" style="line-height:18px;font-size:16px;">
+		</h4>
+		<img id="image" src="images/face.png" alt="Smiley" height="150" width="150" style="display:none"> 
+		</form>
+	</article>
+	<footer>
+		<p id="contact">Melissa B. &#8226; CIS131-W01 Web Site Development II &#8226; Address Book</p> 
+	</footer>  
+</body>
+</html>

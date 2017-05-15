@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>9.2 Address Book</title>
+	<!-- 
+		9.2 Address Book
+		Filename: addressbook.html
+		Author:   Melissa Bakke
+		Class:    CIS131-W01
+        Date:     11/7/2016
+	-->
+
+<script language="JavaScript" type="text/javascript">
+<!--
+    
+	function personObject(firstname,lastname,phone,email,image) {
+      this.firstname = firstname;
+      this.lastname = lastname;
+      this.phone = phone;
+	  this.email = email;
+	  this.image = image;
+      this.showPerson = showPerson;
+    }
+  
+    // Instantiate 3 instances of employeeObject
+    var person = new Array();
+	person[0] = "Select Employee";
+    person[1] = new personObject("John", "Doe", "555-867-5309", "JDoe@email.com", "images/1.svg" );
+    person[2] = new personObject("Morticia", "Addams", "555-555-5555", "MAddams@email.com", "images/2.png");
+    person[3] = new personObject("Davy", "Crockett", "123-456-7890", "Davy@alamo.com", "images/3.png");
+	person[4] = new personObject("Darth", "Vader", "1-800-deathstar", "Daddy@jedi.com", "images/4.png");
+	person[5] = new personObject("Paul", "Bunyan", "987-654-0123", "Bunyan@merica.com", "images/5.png");
+	person[6] = new personObject("Frodo", "Baggins", "1-800-ringbearer", "FBaggins@underhill.com", "images/6.png");
+  
+	var len = person.length;
+  
+    function showPerson() {
+		var info = "";
+		info += "<br>First Name: " + this.firstname + "<br>";
+		info += "Last Name: " + this.lastname +  "<br>";
+		info += "Phone Number: " + this.phone + "<br>";
+		info += "Email Address: " + this.email +  "<br>";
+		document.getElementById("image").src = this.image;
+		document.getElementById("image").style.display = "initial";
+		document.getElementById("peoples").innerHTML = info;		
+    }
+
+//-->
+</script>
+</head>
+<body>
+<h3>Address Book</h3>
+<hr />
+<form name="personForm" id="personForm">
+<strong>Select name to view information:</strong> 
+<select name="personName" onchange="person[this.selectedIndex].showPerson(); this.selectedIndex=0;">
+<script language="JavaScript" type="text/javascript">
+<!--
+
+	for (var i = 0; i < len; i++) {
+    if(i == 0)
+    document.write("<option>" + person[i]) + "</option>";
+    else
+      document.write("<option>" + person[i].firstname) + "</option>";
+	}
+
+//-->
+</script>
+</select>
+<div id="peoples">
+</div>
+<img id="image" src="images/face.png" alt="Smiley" height="150" width="150" style="display:none"> 
+</form>
+</body>
+</html>
